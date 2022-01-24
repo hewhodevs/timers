@@ -10,18 +10,20 @@ body {
 h1 {
   padding-bottom: 20px;
 }
-.category {
-  padding-bottom: 20px;
-}
-.category__add-timer-button {
+button {
   padding: 5px;
+}
+.category {
+  padding-bottom: 50px;
 }
 .timer {
   display: flex;
+  height: 40px;
+  line-height: 40px;
   border-bottom: 1px solid grey;
 }
-.timer > div {
-  padding: 5px;
+.timer__controls {
+  margin-right: 10px;
 }
 .timer__name {
   width: 150px;
