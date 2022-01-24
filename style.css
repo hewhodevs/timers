@@ -1,0 +1,28 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  padding: 10px;
+  width: 300px;
+}
+h1 {
+  padding-bottom: 20px;
+}
+.category {
+  padding-bottom: 20px;
+}
+.category__add-timer-button {
+  padding: 5px;
+}
+.timer {
+  display: flex;
+  border-bottom: 1px solid grey;
+}
+.timer > div {
+  padding: 5px;
+}
+.timer__name {
+  width: 150px;
+}

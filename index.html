@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Start head -->
+  <head>
+    <meta charset="UTF-8" />
+    <!--! displays site properly based on user's device -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--! Add a description -->
+    <meta name="description" content="Timers" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/images/faviconName.png"
+    />
+    <!--! Start CSS stylesheet loading to avoid render blocking -->
+    <link
+      rel="preload"
+      href="/style.css"
+      as="style"
+      onload="this.onload=null;this.removeAttribute('style');this.rel='stylesheet'"
+    />
+    <!-- No JS fallback -->
+    <noscript><link rel="stylesheet" href="/style.css" /></noscript>
+    <!-- End CSS stylesheet loading -->
+    <!--! Start Font loading to avoid render blocking -->
+    <!-- connect to domain of google font files -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- optionally increase loading priority -->
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <!-- async CSS -->
+    <link
+      rel="stylesheet"
+      media="print"
+      onload="this.onload=null;this.removeAttribute('media');"
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+    />
+    <!-- no-JS fallback -->
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      />
+    </noscript>
+    <!-- End Font Loading  -->
+    <!--! Import JavaScript Files, use defer attribute for best peformance -->
+    <script defer src="/script.js"></script>
+    <!--! Page Title -->
+    <title>Page Title Here</title>
+  </head>
+  <!-- End head -->
+
+  <!-- Start body -->
+  <body>
+    <h1>Timers</h1>
+    <!-- Start alerts -->
+    <div id="alerts" class="category">
+      <button class="category__add-timer-button">Add Alert</button>
+      <!-- Start category__timer-list -->
+      <div class="category__timer-list">
+        <div class="timer">
+          <div class="timer__name">
+            <h3>Laundry</h3>
+          </div>
+          <div class="timer__duration">
+            <h3>00:00:00</h3>
+          </div>
+        </div>
+        <div class="timer">
+          <div class="timer__name">
+            <h3>Dishes</h3>
+          </div>
+          <div class="timer__duration">
+            <h3>00:00:00</h3>
+          </div>
+        </div>
+      </div>
+      <!-- End catrgory__timer-list -->
+    </div>
+    <!-- End alerts -->
+
+    <!-- Start trackers -->
+    <div class="category">
+      <button class="category__add-timer-button">Add Task Tracker</button>
+      <!-- Start category__timer-list -->
+      <div class="category__timer-list">
+        <div class="timer">
+          <div class="timer__name">
+            <h3>Portfolio</h3>
+          </div>
+          <div class="timer__duration">
+            <h3>00:00:00</h3>
+          </div>
+        </div>
+        <div class="timer">
+          <div class="timer__name">
+            <h3>FreeCodeCamp</h3>
+          </div>
+          <div class="timer__duration">
+            <h3>00:00:00</h3>
+          </div>
+        </div>
+      </div>
+      <!-- End catrgory__timer-list -->
+    </div>
+    <!-- End trackers -->
+
+  </body>
+  <!-- End body -->
+</html>
