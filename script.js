@@ -42,7 +42,6 @@ let alertsList;
 // ----------------------------------
 document.addEventListener("DOMContentLoaded", () => {
   alertsList = getElementByID("alerts-list");
-  console.log(getAlertTimers());
   displayAlertTimers(getAlertTimers());
 });
 
