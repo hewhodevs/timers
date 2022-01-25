@@ -33,19 +33,6 @@ let timers = [
         duration: 0,
       },
     ]
-  },
-  {
-    category: "prompts",
-    timers: [
-      {
-        name: "pomodoro",
-        duration: 0,
-      },
-      {
-        name: "another one",
-        duration: 0,
-      },
-    ]
   }
 ];
 
