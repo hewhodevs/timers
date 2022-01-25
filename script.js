@@ -28,62 +28,46 @@ let timers = [
         duration: 0,
       },
       {
-        name: "FreeCodeCamo",
+        name: "FreeCodeCamp",
         duration: 0,
-      }
+      },
     ]
   }
 ];
-
-let alertsList;
 
 // ----------------------------------
 // DOMContentLoaded
 // ----------------------------------
 document.addEventListener("DOMContentLoaded", () => {
-  alertsList = getElementByID("alerts-list");
-  displayAlertTimers(getAlertTimers());
+  displayAlertTimers(timers);
 });
 
 // ----------------------------------
 // Functions
 // ----------------------------------
 
-const getElementByID = (idstr) => {
-  return document.getElementById(idstr);
-}
-
-// gets the array of alert timer objects
-const getAlertTimers = () => {
-  return timers[0].timers;
-}
-
-// get the array of tracker timer objects
-const getTrackerTimers = () => {
-  return timers[1];
-}
-
-// display each alert timer object in the array
+// display the timers from each object element in the array
 const displayAlertTimers = (arr) => {
-  // check if any timer children already displayed
-  let lastChild = alertsList.lastChild;
-  // check if we are already displaying timers from our list
-  for (let i = 0; i < arr.length; i++) {
-    const alertTimer = createAlertTimer(arr[i]);
-    alertsList.append(alertTimer);
-  }
+  arr.forEach(timerSet => {
+    const category = timerSet.category;
+    const timers = timerSet.timers;
+    const categoryDiv = document.getElementById(`${category}`);
+    categoryDiv.append(createTimerListElement(category, timers));
+  });
 }
 
-// gets the corresponding array index of an alert timer from it's id value
-const getIndexOfAlert = (alertElement) => {
-  // timers have an id format of "alert-index"
-  // so remove first 6 chars of id, then convert remaining index string to int
-  return parseInt(alertElement.id.slice(6));
+const createTimerListElement = (category, timers) => {
+  let timerListDiv = document.createElement(`${category}-list`);
+  timerListDiv.className = "category__timer-list";
+  timers.forEach((timer, index) => {
+    timerListDiv.append(createTimerElement(category, timer, index));
+  });
+  return timerListDiv;
 }
 
-const createAlertTimer = (timer, index) => {
+const createTimerElement = (category, timer, index) => {
   let timerDiv = document.createElement('div');
-  timerDiv.id = `alert-${index}`
+  timerDiv.id = `${category}-${index}`
   timerDiv.className = 'timer';
   timerDiv.innerHTML = `
       <div class="timer__controls">
