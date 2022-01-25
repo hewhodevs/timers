@@ -2,6 +2,7 @@
 // Globals
 // ----------------------------------
 
+// category names must be unique
 // timers[0] = alerts
 // timers[1] = trackers
 let timers = [
@@ -32,6 +33,19 @@ let timers = [
         duration: 0,
       },
     ]
+  },
+  {
+    category: "prompts",
+    timers: [
+      {
+        name: "pomodoro",
+        duration: 0,
+      },
+      {
+        name: "another one",
+        duration: 0,
+      },
+    ]
   }
 ];
 
@@ -51,13 +65,33 @@ const displayAlertTimers = (arr) => {
   arr.forEach(timerSet => {
     const category = timerSet.category;
     const timers = timerSet.timers;
-    const categoryDiv = document.getElementById(`${category}`);
+    const timersAppDiv = document.getElementById("timers-app");
+    const categoryDiv = createCategoryElement(category);
+    timersAppDiv.append(categoryDiv);
     categoryDiv.append(createTimerListElement(category, timers));
   });
 }
 
+// Categrory - contains a list of timers and an add timer button
+const createCategoryElement = (category) => {
+  // category names must be unique for the id naming here to work
+  let categoryDiv = document.createElement('div');
+  categoryDiv.id = category;
+  categoryDiv.className = "category";
+  // create inner button for adding timers of this category
+  let categoryAddButton = document.createElement('button');
+  categoryAddButton.id = `add-${category}-button`;
+  categoryAddButton.className = "category__add-timer-button";
+  categoryAddButton.textContent = `Add ${category}`;
+  // Append the timer button to the category div
+  categoryDiv.append(categoryAddButton);
+  return categoryDiv
+}
+
+// Timer List - contains a list of timers
 const createTimerListElement = (category, timers) => {
-  let timerListDiv = document.createElement(`${category}-list`);
+  let timerListDiv = document.createElement(`div`);
+  timerListDiv.id = `${category}-list`;
   timerListDiv.className = "category__timer-list";
   timers.forEach((timer, index) => {
     timerListDiv.append(createTimerElement(category, timer, index));
@@ -65,6 +99,7 @@ const createTimerListElement = (category, timers) => {
   return timerListDiv;
 }
 
+// Timer - a timer for a given category
 const createTimerElement = (category, timer, index) => {
   let timerDiv = document.createElement('div');
   timerDiv.id = `${category}-${index}`
